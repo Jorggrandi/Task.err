@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task.er</title>
+    <script src="https://kit.fontawesome.com/b02a7ea5b5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <form action="">
+        <input type="text" placeholder="Qual a sua tarefa?" required id="input-tarefa">
+
+        <input type="text" placeholder="Deixe alguma descrição." id="input-descricao">
+
+        <label for="input-time">Quando é a sua tarefa?</label>
+        <input type="datetime-local" id="input-time" required> 
+
+        <button>
+            <i class="fa-solid fa-plus"></i>
+            <span>Add<span>
+        </button>
+       
+    </form>
+
+    <p>Minhas tarefas</p>
+    <ul id="lista de tarefas">
+        
+    </ul>
+
+    <dialog id="modal">
+        <p>Teste de modal</p>
+        <i class="fa-solid fa-x" id="closeModal"></i>
+    </dialog>
+
+    <button id="modalBtn">Modal</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/pt-br.js"></script>
+    <script>dayjs.locale('pt-br')</script>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
