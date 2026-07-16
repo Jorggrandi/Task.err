@@ -43,7 +43,8 @@ form.addEventListener("submit", (e) =>{
     const tarefa = {
         tarefa: inputTarefa.value,
         descricao: inputDescricao.value,
-        time: inputTime.value
+        time: inputTime.value,
+        checked: false,
     }
 
     listaTarefas.push(tarefa)
@@ -95,17 +96,33 @@ function render(){
             `
 
 
-            checkButton.addEventListener("click", () =>{
-                window.confirm("Tem certeza que deseja apagar essa tarefa")
+            deleteButton.addEventListener("click", () =>{
+                confirmar = window.confirm("Tem certeza que deseja apagar essa tarefa")
 
-                if(confirm){
+                if(confirmar == true){
                     localStorage.removeItem(`tarefa${index}`)
-                    listaTarefas.pop(index+1)
+                    listaTarefas.splice(index,1)
                 }
                 else{
                     window.alert("Ação cancelada.")
                 }
-           
+            
+            checkButton.addEventListener("click", () => {
+
+                let checkedTask = Boolean(item.checked = true)
+               
+                let attTask = {
+                    tarefa: item.tarefa,
+                    descricao: item.descricao,
+                    time: item.time,
+                    checked: checkedTask
+
+                }
+                localStorage.setItem(`tarefa${index}`, JSON.stringify(attTask))
+
+            })
+
+
     })
 }
         console.log(`${item.tarefa} - ${index}`)
