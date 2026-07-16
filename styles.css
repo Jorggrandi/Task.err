@@ -2,12 +2,31 @@
 
 *{
     font-family: 'Inter' ;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .task{
     font-weight: bold;
 }
 
+#sidebar{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .menu-itens{
-    font-family: "Cabinet";
+    font-family: "Clash Display";
+}
+nav{
+    position: absolute;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: steelblue;
+}
+body{
+    margin-left: 200px;
 }

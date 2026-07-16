@@ -8,6 +8,11 @@ const ul = document.querySelector("#ul-tasks")
 // Lista de tarefas
 let listaTarefas = JSON.parse(localStorage.getItem("tarefa")) || []
 
+// Botões nos inputs
+const checkButton = document.querySelector(".check-button")
+const editButton = document.querySelector(".edit-button")
+const deleteButton = document.querySelector(".delete-button")
+
 // Coloca a data mínima como maior que hoje
 const agora = new Date()
 const horaAgora = agora.getHours()
@@ -75,19 +80,33 @@ function render(){
                     <i class="fa-regular fa-calendar"></i>
                     ${diaSemanaFormat} às ${hora}
                 </p>
-                <span><i class="fa-regular fa-circle-check"></i>Concluir</span>
-                <span><i class="fa-regular fa-trash-can"></i>Editar</span>
-                <span><i class="fa-regular fa-trash-can"></i>Excluir</span>
+                <button class="check-button"><i class="fa-regular fa-circle-check"></i>Concluir</button>
+                <button class="edit-button"><i class="fa-regular fa-trash-can"></i>Editar</button>
+                <button class="delete-button"><i class="fa-regular fa-trash-can"></i>Excluir</button>
             `
         } else {    
             ul.innerHTML += `
                 <li class="task">${item.tarefa}</li>
                 
                 <p><i class="fa-regular fa-calendar"></i>${data} às ${hora}</p>
-                <span><i class="fa-regular fa-circle-check"></i>Concluir</span>
-                <span><i class="fa-solid fa-eraser"></i></i>Editar</span>
-                <span><i class="fa-regular fa-trash-can"></i>Excluir</span>
+                <button class="check-button"><i class="fa-regular fa-circle-check"></i>Concluir</button>
+                <button class="edit-button"><i class="fa-regular fa-trash-can"></i>Editar</button>
+                <button class="delete-button"><i class="fa-regular fa-trash-can"></i>Excluir</button>
             `
+
+
+            checkButton.addEventListener("click", () =>{
+                window.confirm("Tem certeza que deseja apagar essa tarefa")
+
+                if(confirm){
+                    localStorage.removeItem(`tarefa${index}`)
+                    listaTarefas.pop(index+1)
+                }
+                else{
+                    window.alert("Ação cancelada.")
+                }
+           
+    })
 }
         console.log(`${item.tarefa} - ${index}`)
         localStorage.setItem(`tarefa${index}`, JSON.stringify(item))
