@@ -8,25 +8,126 @@
 }
 
 .task{
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #sidebar{
-    list-style: none;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
-.menu-itens{
-    font-family: "Clash Display";
+#lista-tarefas{
+  list-style: none;
 }
+
+.menu-itens{
+  font-family: "Clash Display";
+  border: 0.5px solid red;
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 20px;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+.menu-itens i{
+  margin-right: 10px;
+}
+#foto{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  padding: 5px;
+}
+
+#foto i{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+#avatar{
+  font-size: 40px;
+}
+
 nav{
-    position: absolute;
-    left: 0;
-    width: 200px;
-    height: 100vh;
-    background-color: steelblue;
+  position: absolute;
+  left: 0;
+  height: 100vh;
+  background-color: steelblue;
 }
 body{
     margin-left: 200px;
+}
+#user-area span{
+  font-weight: bold;
+}
+#user-area p{
+  font-size: 10px;
+}
+form{
+  margin: auto;
+  padding: 10px;
+  border: 1px solid red;
+  width: 60%;
+}
+
+#input-tarefa{
+  width: 90%;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 4px;
+}
+#input-descricao{
+  width: 90%;
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+#add-button{
+  padding: 5px;
+  border-radius: 4px;
+  border: 0.5px solid #FFFFFF;
+  background-color: #36c15e;
+  color: #FFFFFF;
+}
+
+#modalBtn{
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  border: 0;
+  color: #FFFFFF;
+  border-radius: 50%;
+  background-color: #f1b439;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+}
+#campo-tarefas{
+    border: 1px solid green;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#tarefa-message{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#campo-tarefas{
+    border: 1px solid green;
+}
+.task{
+    margin: 15px;
+    border: 1px solid red
 }

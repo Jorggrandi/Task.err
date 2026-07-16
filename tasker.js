@@ -4,14 +4,10 @@ const inputDescricao = document.querySelector("#input-descricao")
 const inputTime = document.querySelector("#input-time")
 const form = document.querySelector("form")
 const ul = document.querySelector("#ul-tasks")
+const message = document.querySelector("#tarefa-message")
 
 // Lista de tarefas
 let listaTarefas = JSON.parse(localStorage.getItem("tarefa")) || []
-
-// Botões nos inputs
-const checkButton = document.querySelector(".check-button")
-const editButton = document.querySelector(".edit-button")
-const deleteButton = document.querySelector(".delete-button")
 
 // Coloca a data mínima como maior que hoje
 const agora = new Date()
@@ -43,8 +39,7 @@ form.addEventListener("submit", (e) =>{
     const tarefa = {
         tarefa: inputTarefa.value,
         descricao: inputDescricao.value,
-        time: inputTime.value,
-        checked: false,
+        time: inputTime.value
     }
 
     listaTarefas.push(tarefa)
@@ -54,6 +49,7 @@ form.addEventListener("submit", (e) =>{
     inputDescricao.value = ""
     inputTime.value = ""
 
+    mensagem()
     render()
 
 })
@@ -63,7 +59,9 @@ function render(){
     ul.innerText = ``
 
     listaTarefas.forEach((item, index) => {
-        
+
+
+    
         const data = dayjs(item.time).format("DD/MM")
         const hora = dayjs(item.time).format("HH:mm")    
         const diaSemana = dayjs(item.time).format("dddd")
@@ -76,65 +74,69 @@ function render(){
 
         if (tarefaData.isBefore(limite) || tarefaData.isSame(limite)) {
             ul.innerHTML += `
-                <li class="task">${item.tarefa}</li>
+                <li class="task">${item.tarefa}
+                
                 <p> 
                     <i class="fa-regular fa-calendar"></i>
                     ${diaSemanaFormat} às ${hora}
                 </p>
-                <button class="check-button"><i class="fa-regular fa-circle-check"></i>Concluir</button>
-                <button class="edit-button"><i class="fa-regular fa-trash-can"></i>Editar</button>
-                <button class="delete-button"><i class="fa-regular fa-trash-can"></i>Excluir</button>
-            `
-        } else {    
-            ul.innerHTML += `
-                <li class="task">${item.tarefa}</li>
                 
-                <p><i class="fa-regular fa-calendar"></i>${data} às ${hora}</p>
-                <button class="check-button"><i class="fa-regular fa-circle-check"></i>Concluir</button>
-                <button class="edit-button"><i class="fa-regular fa-trash-can"></i>Editar</button>
-                <button class="delete-button"><i class="fa-regular fa-trash-can"></i>Excluir</button>
-            `
+                <span>
+                    <i class="fa-regular fa-circle-check"></i>
+                    Concluir
+                </span>
+                
+                <span>
+                    <i class="fa-solid fa-eraser"></i>
+                    Editar
+                </span>
+                
+                <span>
+                    <i class="fa-regular fa-trash-can"></i>
+                    Excluir
+                </span>
+                </li>
+                `
+        }
+        else{    
+            ul.innerHTML += `
+                <li class="task">${item.tarefa}
+                    <p>
+                        <i class="fa-regular fa-calendar"></i>
+                        ${data} às ${hora}
+                    </p>    
+                    <span>
+                        <i class="fa-regular fa-circle-check"></i>
+                        Concluir
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-eraser"></i>
+                        Editar
+                    </span>
+                    <span>
+                        <i class="fa-regular fa-trash-can"></i>
+                        Excluir
+                    </span>
+                </li>
 
+            `}
 
-            deleteButton.addEventListener("click", () =>{
-                confirmar = window.confirm("Tem certeza que deseja apagar essa tarefa")
-
-                if(confirmar == true){
-                    localStorage.removeItem(`tarefa${index}`)
-                    listaTarefas.splice(index,1)
-                }
-                else{
-                    window.alert("Ação cancelada.")
-                }
-            
-            checkButton.addEventListener("click", () => {
-
-                let checkedTask = Boolean(item.checked = true)
-               
-                let attTask = {
-                    tarefa: item.tarefa,
-                    descricao: item.descricao,
-                    time: item.time,
-                    checked: checkedTask
-
-                }
-                localStorage.setItem(`tarefa${index}`, JSON.stringify(attTask))
-
-            })
-
-
-    })
-}
         console.log(`${item.tarefa} - ${index}`)
         localStorage.setItem(`tarefa${index}`, JSON.stringify(item))
-
-        
     })
 }
 
 
 
+
+function mensagem(){
+    if(listaTarefas.length == 0){
+        message.textContent = "Nenhuma tarefa cadastrada :("
+    }
+    else{
+        message.textContent = "Minhas tarefas"
+    }
+}
+
 render()
-
-
-            
+mensagem()

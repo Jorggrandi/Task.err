@@ -11,9 +11,9 @@
 <body>
 
     <nav id="sidebar">
-        <ul>
+        <ul id="lista-tarefas">
             <li class="menu-itens">
-                <i class="fa-solid fa-money-bill-wave"></i>
+                <i class="fa-solid fa-money-bill-wave" class="icones-task"></i>
                  Finanças
             </li>
             <li class="menu-itens">
@@ -25,6 +25,14 @@
                  Anotações
             </li>
         </ul>
+
+        <div id="foto">
+            <i class="fa-regular fa-circle-user" id="avatar" ></i>
+            <div id="user-area">
+                <span>Jorge Henrique</span>
+                <p>160K de tarefas concluidas</p>
+            </div>
+        </div>
     </nav>
 
     <form action="">
@@ -39,21 +47,26 @@
         </div>
         
         <div id="campo-time">
+            <i class="fa-solid fa-hourglass"></i>
             <label for="input-time">Quando é a sua tarefa?</label>
             <input type="datetime-local" id="input-time" required> 
-        </div>
 
-        <button>
+            <button id="add-button">
             <i class="fa-solid fa-plus"></i>
             <span>Add<span>
         </button>
+        </div>
+
+        
        
     </form>
-
-    <p>Minhas tarefas</p>
-    <ul id="ul-tasks">
+    <div id="campo-tarefas">
+        <p id="tarefa-message">Minhas tarefas</p>
         
-    </ul>
+        <ul id="ul-tasks">
+        
+        </ul>
+    </div>
 
     <dialog id="modal">
         <p>Teste de modal</p>
