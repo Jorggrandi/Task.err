@@ -5,16 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task.er</title>
     <script src="https://kit.fontawesome.com/b02a7ea5b5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fontshare.com" rel="stylesheet">
 </head>
 <body>
 
+    <nav>
+        <ul>
+            <li class="menu-itens">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                 Finanças
+            </li>
+            <li>
+                <i class="fa-solid fa-brain"></i>
+                 Brain Área
+            </li>
+            <li>
+                <i class="fa-solid fa-book-bookmark"></i>
+                 Anotações
+            </li>
+        </ul>
+    </nav>
+
     <form action="">
-        <input type="text" placeholder="Qual a sua tarefa?" required id="input-tarefa">
+        <div id="campo-tarefa">
+            <i class="fa-solid fa-check"></i>
+            <input type="text" placeholder="Qual a sua tarefa?" required id="input-tarefa">
+        </div>
 
-        <input type="text" placeholder="Deixe alguma descrição." id="input-descricao">
-
-        <label for="input-time">Quando é a sua tarefa?</label>
-        <input type="datetime-local" id="input-time" required> 
+        <div id="campo-descricao">
+            <i class="fa-solid fa-clipboard"></i>
+            <input type="text" placeholder="Deixe alguma descrição." id="input-descricao">
+        </div>
+        
+        <div id="campo-time">
+            <label for="input-time">Quando é a sua tarefa?</label>
+            <input type="datetime-local" id="input-time" required> 
+        </div>
 
         <button>
             <i class="fa-solid fa-plus"></i>
@@ -24,7 +51,7 @@
     </form>
 
     <p>Minhas tarefas</p>
-    <ul id="lista de tarefas">
+    <ul id="ul-tasks">
         
     </ul>
 
@@ -33,7 +60,7 @@
         <i class="fa-solid fa-x" id="closeModal"></i>
     </dialog>
 
-    <button id="modalBtn">Modal</button>
+    <button id="modalBtn"><i class="fa-solid fa-chart-simple"></i></button>
 
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/locale/pt-br.js"></script>
