@@ -5,30 +5,36 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: none;
 }
-
-.task{
-  font-weight: bold;
-}
-
 #sidebar{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    border-right: 1px solid #3c3c3c;
 }
 #lista-tarefas{
   list-style: none;
 }
-
 .menu-itens{
-  font-family: "Clash Display";
-  border: 0.5px solid red;
+  font-family: "Inter";
+  font-size: 22px;
+  font-weight: 300;
   padding: 8px;
   border-radius: 8px;
   margin-top: 20px;
-  background-color: #000000;
-  color: #FFFFFF;
+  color: #bebcbc;
+  cursor:pointer;
+  transition: 0.25s;
+  border: 1px transparent #343434;
+
+}
+.menu-itens:hover{
+  border-style: solid;
+  border-color: #343434;
+  background-color:#242424 ;
+
 }
 .menu-itens i{
   margin-right: 10px;
@@ -38,10 +44,14 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
+  border: 1px solid #4d4d4e;
   border-radius: 4px;
-  background-color: #FFFFFF;
+  background-color: #1c1c1c;
   padding: 5px;
+  color: #e0e0e0;
+  padding: 8px;
+  gap: 5px;
+  width: 95%;
 }
 
 #foto i{
@@ -52,17 +62,26 @@
   font-size: 40px;
 }
 
+h1{
+  color:#d6d2d2;
+  text-align: center;
+  margin-top: 7px;
+}
+
 nav{
   position: absolute;
+  top:0;
   left: 0;
   height: 100vh;
-  background-color: steelblue;
+  width: 18%;
+  background-color: #1b1b1b;
 }
-body{
-    margin-left: 200px;
+main{
+  margin-left: 200px;
 }
 #user-area span{
   font-weight: bold;
+  font-size: 20px;
 }
 #user-area p{
   font-size: 10px;
@@ -70,32 +89,94 @@ body{
 form{
   margin: auto;
   padding: 10px;
-  border: 1px solid red;
+  border: 1px solid #2c2c2c;
+  border-radius: 12px;
+  background-color: #1b1b1b;
+  color:#FFFFFF;
   width: 60%;
+  margin-top: 8px;
 }
-
-#input-tarefa{
-  width: 90%;
-  height: 25px;
+form i {
+  color:#3c3c3c
+}
+#input-time{
+  height: 46px;
+  border-radius: 8px;
+  border: 2px solid #2c2c2c;
+  background-color: #3c3c3c00;
   padding: 5px;
   border-radius: 5px;
   margin-left: 4px;
+  margin-bottom: 8px;
+  color: #bebcbc;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 1s;
 }
-#input-descricao{
-  width: 90%;
-  height: 25px;
+#input-time:hover{
+  transition: .25s;
+  border: #e0e0e0 1px solid;
+}
+
+#input-tarefa{
+  width: 95%;
+  height: 46px;
+  border-radius: 8px;
+  border: 1px solid #2c2c2c;
+  background-color: #3c3c3c00;
   padding: 5px;
   border-radius: 5px;
-  margin-left: 5px;
+  margin-left: 4px;
+  margin-bottom: 8px;
+  color: #bebcbc;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 1s;
+}
+#input-tarefa:hover{
+  transition: .25s;
+  border: #e0e0e0 1px solid;
+
+}
+#input-descricao{
+  width: 95%;
+  height: 46px;
+  border-radius: 8px;
+  border: 2px solid #2c2c2c;
+  background-color: #3c3c3c00;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 4px;
+  margin-bottom: 8px;
+  color: #bebcbc;
+  font-size: 16px;
+  font-weight: 400;
+  transition: 1s;
+}
+#input-descricao:hover{
+  transition: 0.25s;
+  border: #e0e0e0 1px solid;
+
 }
 
 #add-button{
   padding: 5px;
   border-radius: 4px;
-  border: 0.5px solid #FFFFFF;
-  background-color: #36c15e;
+  border: 1px solid #55ad6e;
+  background-color: #55ad6e;
   color: #FFFFFF;
+  margin-left: 10px;
+  width: 30%;
+  height: 42px;
+  font-size: 18px;
+  font-weight: bold;
+
 }
+#add-button i {
+  color: #FFFFFF;
+  margin-right: 8px;
+}
+
 
 #modalBtn{
   width: 50px;
@@ -108,26 +189,115 @@ form{
   position: fixed;
   bottom: 2%;
   right: 2%;
+  cursor: pointer;
 }
 #campo-tarefas{
-    border: 1px solid green;
+    border: 1px dashed #2c2c2c;
+    border-radius: 10px;
     width: 60%;
     margin: auto;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color: #d6d2d2;
+    text-align: center;
 }
 
 #tarefa-message{
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-#campo-tarefas{
-    border: 1px solid green;
+    font-weight: 800;
+    font-size: 24px;
 }
 .task{
     margin: 15px;
-    border: 1px solid red
+    border: 1px solid #4d4d4e;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    padding: 8px;
+    border-radius: 8px;
+}
+.task h3{
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.task p{
+  width: 100vh;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #bebcbc;
+}
+.task hr{
+  margin-bottom: 6px;
+}
+
+body{
+  background-color: #151515;
+}
+#button-message{
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #55ad6e;
+  background-color: #55ad6e;
+  color: #FFFFFF;
+  margin: auto;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+#button-message i {
+  color: #FFFFFF;
+  margin-right: 5px;
+}
+label{
+  color: #bebcbc;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+hr{
+  height: 0.75px;
+  margin-top: 3px;
+}
+.check-span{
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #55ad6e;
+  color:#FFFFFF;
+  margin-right: 12px;
+}
+.edit-span{
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #79ABDB;
+  color:#FFFFFF;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.del-span{
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #d95b4f;
+  color:#FFFFFF;
+  margin-right: 12px;
+  cursor: pointer;
+
+}
+.buttons{
+  margin-top: 6px;
+  margin-bottom: 6px;
+  cursor: pointer;
+
+}
+.tasker{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.tasker i{
+  margin-right: 8px;
 }

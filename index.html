@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://api.fontshare.com/css?f=clash-display@400,700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body> 
+        <nav id="sidebar">
+            <div>
+            <h1>Task.er</h1>
 
-    <nav id="sidebar">
-        <ul id="lista-tarefas">
-            <li class="menu-itens">
-                <i class="fa-solid fa-money-bill-wave" class="icones-task"></i>
-                 Finanças
+            <ul id="lista-tarefas">
+                <li class="menu-itens">
+                    <i class="fa-solid fa-money-bill-wave" class="icones-task"></i>
+                    Finanças
             </li>
             <li class="menu-itens">
                 <i class="fa-solid fa-brain"></i>
@@ -25,6 +27,7 @@
                  Anotações
             </li>
         </ul>
+        </div>
 
         <div id="foto">
             <i class="fa-regular fa-circle-user" id="avatar" ></i>
@@ -35,6 +38,8 @@
         </div>
     </nav>
 
+    
+    <main>
     <form action="">
         <div id="campo-tarefa">
             <i class="fa-solid fa-check"></i>
@@ -53,21 +58,20 @@
 
             <button id="add-button">
             <i class="fa-solid fa-plus"></i>
-            <span>Add<span>
+            <span>Adicionar<span>
         </button>
         </div>
-
         
-       
     </form>
     <div id="campo-tarefas">
         <p id="tarefa-message">Minhas tarefas</p>
         
         <ul id="ul-tasks">
-        
+            
         </ul>
     </div>
-
+    
+</main> 
     <dialog id="modal">
         <p>Teste de modal</p>
         <i class="fa-solid fa-x" id="closeModal"></i>
